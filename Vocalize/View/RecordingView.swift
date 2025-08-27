@@ -13,19 +13,12 @@ let backgroundGradient = LinearGradient(colors: [Color.black, Color.gray], start
 struct RecordingView: View {
     @State private var isRecording: Bool = false
     var body: some View {
-        TabView{
             
             
             ZStack {
                 backgroundGradient
                 
                 VStack{
-                    Text("Vocalize").font(.system(size: 50)).bold().foregroundStyle(.white).fontDesign(.rounded)
-                        .offset(y: -280)
-                        .tracking(4)
-                    
-                    
-                    
                     HStack{
                         
                         Button(action:{
@@ -33,28 +26,20 @@ struct RecordingView: View {
                         }){
                             if isRecording == true{
                                 
-                                Image(systemName: "wave.3.left").symbolEffect(.disappear)
-                                    .font(.system(size: 50))
-                                    .foregroundStyle(.white)
                                 Image(systemName: "microphone.slash.circle.fill")
                                     .symbolEffect(.rotate.clockwise.byLayer, options: .repeat(.continuous))
                                     .font(.system(size: 50))
                                     .foregroundStyle(.white, .red)
-                                Image(systemName: "wave.3.right").symbolEffect(.disappear)
-                                    .font(.system(size: 50))
-                                    .foregroundStyle(.white)
-                                
                             }else{
                                 
-                                Image(systemName: "wave.3.backward").symbolEffect(.wiggle.wholeSymbol, options: .nonRepeating)
-                                    .font(.system(size: 50))
-                                    .foregroundStyle(.white)
-                                Image(systemName: "microphone.circle.fill").symbolRenderingMode(.palette)
+                                Image(systemName: "microphone.circle.fill")
+                                    .symbolEffect(.bounce.up.byLayer,
+                                                  options: .nonRepeating)
                                     .font(.system(size: 50))
                                     .foregroundStyle(.red, .white)
-                                Image(systemName: "wave.3.forward").symbolEffect(.wiggle.wholeSymbol, options: .nonRepeating)
-                                    .font(.system(size: 50))
-                                    .foregroundStyle(.white)
+                                
+                                    
+                                    
                             }
                             
                         }
@@ -63,14 +48,6 @@ struct RecordingView: View {
                 }
             }
             .ignoresSafeArea()
-            
-        }
-        
-        
-        
-        
-        
-        
     }
 }
 

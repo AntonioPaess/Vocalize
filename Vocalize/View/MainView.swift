@@ -9,13 +9,22 @@ import SwiftUI
 
 struct MainView: View {
     var body: some View {
-        TabView{
+        NavigationStack{
             
-            Tab("Home", systemImage: "house.fill"){
-                RecordingView()
-            }
+            
+            TabView{
+                
+                Tab("Home", systemImage: "house.fill"){
+                    ShowAudios()
+                }
+                Tab("Recording", systemImage: "microphone.fill"){
+                    RecordingView()
+                }
+            }.accentColor(Color.white)
+
         }
     }
+        
 }
 
 #Preview {
